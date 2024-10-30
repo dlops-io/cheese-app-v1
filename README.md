@@ -1,2 +1,1 @@
-# cheese-app-v1
-Cheese App Version 1
+# Cheese App
