@@ -28,6 +28,8 @@ Your folder structure should look like this:
      |-src
        |---api-service
        |---frontend-simple
+       |---...
+       |---...
    |-secrets
    |-persistent-folder
 ```
