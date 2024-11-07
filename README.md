@@ -53,7 +53,7 @@ We will build a simple frontend app that uses basic HTML & Javascript.
 - Add some text using the `<p>` tag in the html
 ```
 <body>
-    🍄 Welcome to the cheese identification App!
+    🧀 Welcome to the cheese identification App!
     <p>
         This is a placeholder for the awesome cheese identification app
     </p>
