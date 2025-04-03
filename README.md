@@ -74,7 +74,7 @@ We will create a basic backend container to run our REST API. The FastAPI framew
 
 
 ### Start API Service
-- To run development API service run `uvicorn api.service:app --host 0.0.0.0 --port 9000` from the docker shell
+- To run development API service run `uvicorn api.service:app --host 0.0.0.0 --port 9000 --log-level debug --reload --reload-dir api/ "$@"` from the docker shell
 - Test the API service by going to `http://localhost:9000/`
 
 ### Edit Code in VS Code
