@@ -34,6 +34,40 @@ Your folder structure should look like this:
    |-persistent-folder
 ```
 
+## Backend API Container
+We will create a basic backend container to run our REST API. The FastAPI framework will be used for this.
+
+### Go into the api-service folder 
+- Open a terminal and go to the location where `cheese-app-v1/api-service`
+
+### Build & Run Container
+- Run `sh docker-shell.sh`
+
+### Start API Service
+- To run development API service run `uvicorn api.service:app --host 0.0.0.0 --port 9000 --log-level debug --reload --reload-dir api/ "$@"` from the docker shell
+- Test the API service by going to `http://localhost:9000/`
+
+### Edit Code in VS Code
+- Open `api/service.py` in your editor
+- Add the following code at the end of the file:
+```
+@app.get("/square_root/")
+async def square_root(x: float = 1, y: float = 2):
+    z = x**2 + y**2
+    return z**0.5
+```
+- Go to `http://localhost:9000/square_root/`
+- Do you see the square root computed by a python function displayed in the web browser?
+- Go to `http://localhost:9000/square_root/?x=2&y=10` adding parameters to your url
+- Do you see the new results?
+
+### View API Docs
+Fast API gives us an interactive API documentation and exploration tool for free.
+- Go to `http://localhost:9000/docs`
+- You can test APIs from this tool
+
+---
+
 ## Frontend App (Simple) Container
 We will build a simple frontend app that uses basic HTML & Javascript. 
 
@@ -62,36 +96,6 @@ We will build a simple frontend app that uses basic HTML & Javascript.
 - Refresh the page `http://localhost:8080/`
 - You will see your changes in the web page
 
-
-## Backend API Container
-We will create a basic backend container to run our REST API. The FastAPI framework will be used for this.
-
-### Go into the api-service folder 
-- Open a terminal and go to the location where `cheese-app-v1/api-service`
-
-### Build & Run Container
-- Run `sh docker-shell.sh`
-
-
-### Start API Service
-- To run development API service run `uvicorn api.service:app --host 0.0.0.0 --port 9000 --log-level debug --reload --reload-dir api/ "$@"` from the docker shell
-- Test the API service by going to `http://localhost:9000/`
-
-### Edit Code in VS Code
-- Open `api/service.py` in your editor
-- Add the following code at the end of the file:
-```
-@app.get("/square_root/")
-async def square_root(x: float = 1, y: float = 2):
-    z = x**2 + y**2
-    return z**0.5
-```
-- Go to `http://localhost:9000/square_root/`
-- Do you see the square root computed by a python function displayed in the web browser?
-- Go to `http://localhost:9000/square_root/?x=2&y=10` adding parameters to your url
-- Do you see the new results?
-
----
 
 ## Docker Cleanup
 
